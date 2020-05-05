@@ -76,7 +76,8 @@ void say_hello(){
 
 `prog.cpp:6:15: error: ‘say_hello’ was not declared in this scope say_hello();`
 
-error: `‘say_hello’` belum di deklarasikan sehingga harus menambahkan `copy` fungsi `void say_hello()` lalu `paste` sebelum `int main()` sebagai `deklarasi fungsi`.
+error: `‘say_hello’` belum di deklarasikan sehingga harus menambahkan `deklarasi fungsi`.
+Caranya `copy` fungsi `void say_hello()` lalu `paste` sebelum `int main()`.
 
 ```C++
 #include <iostream>
