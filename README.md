@@ -70,3 +70,20 @@ void say_hello(){
     cout << "Selamat Pagi, Belajar Petruk!\n";
 }
 ```
+#### pesan error:
+
+`prog.cpp: In function ‘int main()’:`
+
+`prog.cpp:6:15: error: ‘say_hello’ was not declared in this scope say_hello();`
+
+error: `‘say_hello’` belum di deklarasikan sehingga harus menambahkan `copy` fungsi `void say_hello()` lalu `paste` sebelum `int main()` sebagai `deklarasi fungsi`.
+
+```C++
+#include <iostream>
+using namespace std;
+
+void say_hello(); //deklarasi fungsi say_hello()
+
+int main(){
+    ...
+```
