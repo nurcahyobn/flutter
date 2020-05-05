@@ -1,94 +1,53 @@
-# Pertemuan 03 - Arithmatika #
+# Menggunakan Fungsi pada Program
+Dalam pemrograman, fungsi atau prosedur sering digunakan untuk membungkus program menjadi bagian-bagian kecil.
 
-## Step 1 : Copy Perintah berikut ##
-```
-import 'package:flutter/material.dart';
+Tujuannya agar program tidak menumpuk pada fungsi `main()` saja.
+Bayangkan saja, kalau program kita tambah besar dan kompleks..
+Kalau semua kodenya ditulis di dalam fungsi `main()`, maka kita akan kesulitan membacanya.
 
-void main() => runApp(MyApp());
+Karena itu, kita harus menggunakan Fungsi.
 
-class MyApp extends StatelessWidget {
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Program Penjumlahan'),
-        ),
-        body: Penjumlahan(),
-      ),
-    );
-  }
-}
+## Apa itu Fungsi
+Fungsi adalah sub-program yang bisa digunakan kembali baik di dalam program itu sendiri, maupun di program yang lain.
 
-class Penjumlahan extends StatefulWidget {
-  _PenjumlahanState createState() => _PenjumlahanState();
-}
+Fungsi dapat menerima input dan menghasilkan output.
+Contoh fungsi yang sering kita buat adalah fungsi `main()`.
+Fungsi ini memang wajib ada di setiap program C++, karena fungsi inilah yang akan dieksekusi pertama kali saat program berjalan.
 
-class _PenjumlahanState extends State<Penjumlahan> {
-  String _nama = 'Nama Mahasiswa';
+## Tujuan pembuatan fungsi
+- Untuk mengurangi pengulangan program yang sama
+- Agar program menjadi terstruktur, rapi dan lebih mudah dikembangkan.
+- Untuk memudahkan dalam pengembangan program, karena program dipecah menjadi beberapa program yang lebih kecil.
+- Untuk menghemat ukuran program, ini akan terasa kalau ada beberapa deretan instruksi yang sama dan digunakan pada beberapa tempat di dalam program.
+- Deklarasi / prototipe fungsi.
 
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(_nama, style: TextStyle(fontSize: 30),),
-        RaisedButton(
-          child: Text('Proses'),
-          onPressed: () {
-            _doSomething();
-          },
-        ),
-      ],
-    );
-  }
 
-  void _doSomething() {
-    setState(() {
-      _nama = 'Nurcahyo Budi Nugroho';
-    });
-  }
+## Struktur atau Sintaks pada Fungsi
+Sebuah fungsi sederhana mempunyai bentuk penulisan sebagai berikut:
+```C++
+return_type nama_fungsi(parameter) {
+    pernyataan 
 }
 ```
+Keterangan:
+- return_type adalah nilai balik saat fungsi dipanggil 
+- nama_fungsi, biasanya disesuaikan dengan kegunaan dari fungsi, namun boleh ditulis secara bebas dengan ketentuan tidak menggunakan spasi dan nama-nama fungsi yang memiliki arti sendiri. 
+- parameter/argumen, diletakan di antara tanda kurung setelah nama fungsi, argumen digunakan sebagai nilai masukan untuk fungsi dan dapat dibuat lebih dari satu atau tidak sama sekali.
 
-## Step 2 : Ubah ```class _PenjumlahanState``` ##
-```
-class _PenjumlahanState extends State<Penjumlahan> {
-  final textFieldValueHolder = TextEditingController();
+### Contoh -1
+```C++
+#include <iostream>
+using namespace std;
 
-  String result = '';
+// membuat fungsi say_hello()
+void say_hello(){
+    cout << "Selamat Pagi, Belajar Petruk!\n";
+}
 
-  getTextInputData() {
-    setState(() {
-      result = textFieldValueHolder.text;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-              width: 280,
-              padding: EdgeInsets.all(10.0),
-              child: TextField(
-                controller: textFieldValueHolder,
-                autocorrect: true,
-                decoration: InputDecoration(hintText: 'Isi Nama Mahasiswa'),
-              )),
-          RaisedButton(
-            onPressed: getTextInputData,
-            color: Color(0xffFF1744),
-            textColor: Colors.white,
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-            child: Text('Proses'),
-          ),
-          Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text("Nama = $result", style: TextStyle(fontSize: 20)))
-        ],
-      ),
-    ));
-  }
+int main(){
+    // memanggil fungsi say_hello()
+    say_hello();
+    say_hello();
+    return 0;
 }
 ```
