@@ -51,3 +51,22 @@ int main(){
     return 0;
 }
 ```
+
+### Contoh -2
+jika ingin menuliskan `int main()` diposisi atas program, `tidak benar` ditulis seperti berikut:
+```C++
+#include <iostream>
+using namespace std;
+
+int main(){
+    // memanggil fungsi say_hello()
+    say_hello();
+    say_hello();
+    return 0;
+}
+
+// membuat fungsi say_hello()
+void say_hello(){
+    cout << "Selamat Pagi, Belajar Petruk!\n";
+}
+```
