@@ -84,4 +84,6 @@ RaisedButton(
   onPressed: _kirimdata,
 ```
 
+![Hasil](/flutter-texteditcontrol.png)
+
 > [ref.](https://www.byriza.com/flutter-17-form-bagian-2-texteditingcontroller-mengirim-data-dari-form)
