@@ -1,4 +1,4 @@
-# `TextEditingController`, Mengirim data dari form
+# **TextEditingController**, Mengirim data dari form
 
 `TextEditingController` adalah controller dari `form/textfield` yang dapat diedit/diisi. Ibarat sebuah form dalam sebuah aplikasi harus memiliki identitas pada masing-masing textfieldnya. Untuk membedakan value dan attribute lainnya. Singkatnya saat tombol submit diklik, value dari sebuah `TextField` akan diambil dari controllernya. 
 
