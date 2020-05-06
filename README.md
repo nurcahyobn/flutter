@@ -101,6 +101,6 @@ class _MyAppState extends State<NurcahyoApp> {
     ...
 ```
 
-> berikut kode `return Center`
+> `Step-6` : Jalankan `Run`
 
 ![hasil](/flutter-usia.gif)
