@@ -88,7 +88,7 @@ class _MyAppState extends State<NurcahyoApp> {
   ...
 ```
 
-> `Step-5` : Controll input `TextField` dan `onPressed` pada `RaisedButton`
+> `Step-5` : Controll input `TextField` dan `onPressed` pada `RaisedButton`, dan `Text`
 
 ```dart
   TextField(
@@ -100,6 +100,7 @@ class _MyAppState extends State<NurcahyoApp> {
     onPressed: onHitung,
     ...
   Text(hasil, style: TextStyle(fontSize: 16)),
+    ...
 ```
 
 > `Step-6` : Jalankan `Run`
