@@ -99,6 +99,7 @@ class _MyAppState extends State<NurcahyoApp> {
     child: Text("Hitung"),
     onPressed: onHitung,
     ...
+  Text(hasil, style: TextStyle(fontSize: 16)),
 ```
 
 > `Step-6` : Jalankan `Run`
