@@ -28,6 +28,7 @@ class App13 extends StatelessWidget {
 }
 
 > `Step-2` : Membuat Layout `StatefulWidget`
+
 - ubah kode `body: NurcahyoApp(),`
 - tambah perintah dibawah untuk `class NurcahyoApp()`
   
@@ -46,7 +47,8 @@ class _MyAppState extends State<NurcahyoApp> {
 ```
 
 > `Step-3` : Membuat Layout Container, Column, TextField, RaisedButton, Text
-> ubah `return Center` pada `step-2`
+
+- ubah `return Center` pada `step-2`
 
 ```dart
     return Container(
@@ -114,7 +116,5 @@ class _MyAppState extends State<NurcahyoApp> {
 
     ...
 ```
-
-> `Step-6` : Jalankan `Run`
 
 ![hasil](/flutter-usia.gif)
