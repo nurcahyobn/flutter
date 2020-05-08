@@ -114,7 +114,7 @@ class _MyAppState extends State<NurcahyoApp> {
             child: Text("Hitung"),
             onPressed: onHitung,
           ),
-          Text(, style: TextStyle(fontSize: 16)),
+          Text(hasil, style: TextStyle(fontSize: 16)),
 
     ...
 ```
