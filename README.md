@@ -5,7 +5,7 @@ Hal yang perlu diperhatikan |
 Editor yang digunakan [DartPad](http://dartpad.dartlang.org) |
 Jalankan Program setiap langkah (`step`) |
 Ubah `NurcahyoApp` dengan nama sendiri |
-Tugas jam `08.50` |
+Tugas jam `10.15` |
 
 > `Step-1` : Membuat Layout `StatelessWidget`
 
