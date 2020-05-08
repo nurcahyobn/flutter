@@ -94,23 +94,24 @@ class _MyAppState extends State<NurcahyoApp> {
 > `Step-5` : Controll input `TextField` dan `onPressed` pada `RaisedButton`, dan `Text`
 
 ```dart
-        TextField(
-          controller: txtnama,
-          decoration: new InputDecoration(
-            labelText: "Nama Mahasiswa",
+          TextField(
+            controller: txtnama,
+            decoration: new InputDecoration(
+              labelText: "Nama Mahasiswa",
+            ),
           ),
-        ),
-        TextField(
-          controller: txttahunlahir,
-          decoration: new InputDecoration(
-            labelText: "Tahun Lahir",
+          TextField(
+            controller: txttahunlahir,
+            decoration: new InputDecoration(
+              labelText: "Tahun Lahir",
+            ),
           ),
-        ),
-        RaisedButton(
-          child: Text("Hitung"),
-          onPressed: onHitung,
-        ),
-        Text(hasil, style: TextStyle(fontSize: 16)),
+          RaisedButton(
+            child: Text("Hitung"),
+            onPressed: onHitung,
+          ),
+          Text(, style: TextStyle(fontSize: 16)),
+
     ...
 ```
 
