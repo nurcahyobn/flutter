@@ -1,13 +1,19 @@
-# Program Menghitung Usia [Next](/pert13.md)
+# Program Menghitung Usia 
+
+Hal yang perlu diperhatikan |
+------------ |
+Jalankan Program setiap langkah (`step`) |
+Ubah `NurcahyoApp` dengan nama sendiri |
+Tugas jam `08.50` |
 
 > `Step-1` : Membuat Layout `StatelessWidget`
 
 ```dart
 import 'package:flutter/material.dart';
 
-void main() => runApp(App09());
+void main() => runApp(App13());
 
-class App09 extends StatelessWidget {
+class App13 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Program Persegi Panjang',
@@ -20,7 +26,6 @@ class App09 extends StatelessWidget {
     );
   }
 }
-```
 
 > `Step-2` : Membuat Layout `StatefulWidget`
 - ubah kode `body: NurcahyoApp(),`
@@ -83,23 +88,29 @@ class _MyAppState extends State<NurcahyoApp> {
       hasil = "${txtnama.text} berusia $usia tahun";
     });
   }
-
-  Widget build(BuildContext context) {
   ...
 ```
 
 > `Step-5` : Controll input `TextField` dan `onPressed` pada `RaisedButton`, dan `Text`
 
 ```dart
-  TextField(
-    controller: txtnama,
-    decoration: new InputDecoration(
-    ...
-  RaisedButton(
-    child: Text("Hitung"),
-    onPressed: onHitung,
-    ...
-  Text(hasil, style: TextStyle(fontSize: 16)),
+        TextField(
+          controller: txtnama,
+          decoration: new InputDecoration(
+            labelText: "Nama Mahasiswa",
+          ),
+        ),
+        TextField(
+          controller: txttahunlahir,
+          decoration: new InputDecoration(
+            labelText: "Tahun Lahir",
+          ),
+        ),
+        RaisedButton(
+          child: Text("Hitung"),
+          onPressed: onHitung,
+        ),
+        Text(hasil, style: TextStyle(fontSize: 16)),
     ...
 ```
 
