@@ -12,9 +12,9 @@ Tugas jam `08.50` |
 ```dart
 import 'package:flutter/material.dart';
 
-void main() => runApp(App13());
+void main() => runApp(App12());
 
-class App13 extends StatelessWidget {
+class App12 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Program Persegi Panjang',
