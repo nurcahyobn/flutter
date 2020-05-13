@@ -189,6 +189,8 @@ class MataKuliah extends StatelessWidget {
 - buat program `class Menu` di akhir program
 
 ```dart
+class MyTabsState extends State<NurcahyoApp> with SingleTickerProviderStateMixin {
+
   TabController controller;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   ...
