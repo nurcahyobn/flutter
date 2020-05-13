@@ -1,4 +1,4 @@
-# Program Menghitung Usia 
+# Program Scaffold, Tabs dan Images 
 
 Hal yang perlu diperhatikan |
 ------------ |
@@ -182,11 +182,17 @@ class MataKuliah extends StatelessWidget {
 
 > `Step-6` : Membuat  `Menu Por`
 
+- buat deklarasi `GlobalKey<ScaffoldState>` untuk `_scaffoldKey`
 - untuk mengaktifkan `Menu` pada `AppBar` tambahkan properties `key`
 - lalu pada `leading`, `onPressed` diisi  `_key.currentState.openDrawer())` 
 - aktifkan properties `drawer: Menu(),`
-- buat program `class Menu`
+- buat program `class Menu` di akhir program
 
+```dart
+  TabController controller;
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  ...
+```
 
 ```dart
     return Scaffold(
