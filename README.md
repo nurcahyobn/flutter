@@ -202,7 +202,8 @@ class MyTabsState extends State<NurcahyoApp> with SingleTickerProviderStateMixin
       appBar: AppBar(
         leading: IconButton(
             icon: Icon(Icons.menu),
-            onPressed: () => _scaffoldKey.currentState.openDrawer()),
+            onPressed: () => _scaffoldKey.currentState.openDrawer(),
+        ),
         title: Text('NurcahyoProject'),
         ...
        drawer: Menu(),
