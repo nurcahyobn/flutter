@@ -5,7 +5,9 @@ Hal yang perlu diperhatikan |
 Editor yang digunakan [DartPad](http://dartpad.dartlang.org) |
 Jalankan Program setiap langkah (`step`) |
 Ubah `NurcahyoApp` dengan nama sendiri |
-Tugas jam `10.15` |
+Tugas jam `22.15` |
+
+![hasil](/flutter-tabs.gif)
 
 > `Step-1` : Membuat Layout `StatelessWidget`
 
