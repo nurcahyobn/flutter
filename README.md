@@ -126,7 +126,7 @@ class MyTabsState extends State<NurcahyoApp> with SingleTickerProviderStateMixin
     ...
 ```
 
-- Menambahkan `class` pada untuk pemilihan item `TabBarView`
+- Menambahkan `class` di akhir program pada untuk pemilihan item `TabBarView`
 
 ```dart
 // class Camera
