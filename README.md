@@ -183,8 +183,8 @@ class MataKuliah extends StatelessWidget {
 > `Step-6` : Membuat  `Menu Por`
 
 - buat deklarasi `GlobalKey<ScaffoldState>` untuk `_scaffoldKey`
-- untuk mengaktifkan `Menu` pada `AppBar` tambahkan properties `key`
-- lalu pada `leading`, `onPressed` diisi  `_key.currentState.openDrawer())` 
+- untuk mengaktifkan `Menu` pada `AppBar` tambahkan properties `key` dengan nilai `_scaffoldKey`
+- lalu pada `leading`, `onPressed` diisi  `_scaffoldKey.currentState.openDrawer())` 
 - aktifkan properties `drawer: Menu(),`
 - buat program `class Menu` di akhir program
 
