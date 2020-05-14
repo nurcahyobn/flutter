@@ -7,7 +7,7 @@ Jalankan Program setiap langkah (`step`) |
 Ubah `NurcahyoApp` dengan nama sendiri |
 Tugas jam `22.15` |
 
-![hasil](/flutter-tabs.gif)
+![hasil](/flutter-tabs.gif) 
 
 > `Step-1` : Membuat Layout `StatelessWidget`
 
@@ -251,3 +251,7 @@ class Menu extends StatelessWidget {
   }
 }
 ```
+
+> `Tugas 13` : menghapus Tabs `Dosen`
+
+![tugas](/p13-6sia3.png)
