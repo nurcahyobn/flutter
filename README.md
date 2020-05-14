@@ -252,6 +252,6 @@ class Menu extends StatelessWidget {
 }
 ```
 
-> `Tugas 13` : menghapus Tabs `Dosen`
+> `Tugas 13` : pindahkan `Camera` dari `Tabs` ke `AppBar`
 
 ![tugas](/6sia1-p13.png)
