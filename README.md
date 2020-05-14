@@ -5,7 +5,7 @@ Hal yang perlu diperhatikan |
 Editor yang digunakan [DartPad](http://dartpad.dartlang.org) |
 Jalankan Program setiap langkah (`step`) |
 Ubah `NurcahyoApp` dengan nama sendiri |
-Tugas jam `22.15` |
+Tugas `6SIA1` jam `11.30` |
 
 ![hasil](/flutter-tabs.gif) 
 
