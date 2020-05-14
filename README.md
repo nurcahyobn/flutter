@@ -252,3 +252,6 @@ class Menu extends StatelessWidget {
 }
 ```
 
+> `Tugas 13` : menghapus Tabs `Dosen`
+
+![tugas](/6sia1-p13.png)
