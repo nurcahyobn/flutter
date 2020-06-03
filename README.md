@@ -29,6 +29,6 @@ class App14 extends StatelessWidget {
 
 > `Step-2` : Membuat Layout `StatefulWidget`
 
-- tambah kode `home: MahasiswaApp(),`
+- tambah kode `home: NurcahyoApp(),`
 - tambah perintah dibawah untuk `class NurcahyoApp()` 
   
