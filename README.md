@@ -15,7 +15,6 @@ void main() => runApp(App14());
 class App14 extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Program Persegi Panjang',
       home: Scaffold(
         appBar: AppBar(
           title: Text('Nurcahyo (KELAS)'),
@@ -52,34 +51,34 @@ class _MyAppState extends State<NurcahyoApp> {
 ```dart
 class Mahasiswa {
   final String namalengkap;
-  final String jkelamin;
-  final String usia;
+  final String jurusan;
+  final String thn_angkatan;
   final String fotoURL;
  
-  Mahasiswa({this.jkelamin, this.namalengkap, this.usia, this.fotoURL});
+  Mahasiswa({this.jurusan, this.namalengkap, this.thn_angkatan, this.fotoURL});
 }
 
 class MahasiswaList {
   static List<Mahasiswa> getMahasiswa() {
     return [
       Mahasiswa(
-          namalengkap: 'Nurcahyo',
-          jkelamin: 'Laki-laki',
-          usia: '38 tahun',
-          fotoURL: ''),
+          namalengkap: 'Nurcahyo Budi Nugroho',
+          jurusan: 'Sistem Informasi',
+          thn_angkatan: '2015',
+          fotoURL: 'https://m.media-amazon.com/images/M/MV5BMmIzMjc5Y2ItNTIyZi00YTEzLWI4NDAtODQ0MzBiNTZmMDMxXkEyXkFqcGdeQXVyMjQwMzc1MzI@._V1_UY209_CR13,0,140,209_AL_.jpg'),
       Mahasiswa(
-          namalengkap: '',
-          jkelamin: '',
-          usia: '',
-          fotoURL:''),      
+          namalengkap: 'Mulia Dewi',
+          jurusan: 'Manajemen Informatika',
+          thn_angkatan: '2019',
+          fotoURL:'https://m.media-amazon.com/images/M/MV5BMTU1Njc2NTc3OV5BMl5BanBnXkFtZTgwMzUyNjU5NDM@._V1_UY209_CR87,0,140,209_AL_.jpg'),      
     ];
   }
 }
 
 class MahasiswaCard extends StatelessWidget {
-  final Mahasiswa mhs;
+  final Mahasiswa mahasiswa;
 
-  MahasiswaCard({this.mhs});
+  MahasiswaCard({this.mahasiswa});
 
   Widget build(BuildContext context) {
     return Card(
@@ -87,11 +86,11 @@ class MahasiswaCard extends StatelessWidget {
         children: <Widget>[
           ListTile(
             leading: CircleAvatar(
-              backgroundImage: NetworkImage(mhs.fotoURL),
+              backgroundImage: NetworkImage(mahasiswa.fotoURL),
             ),
-            title: Text(mhs.namalengkap),
-            subtitle: Text(mhs.jkelamin),
-            trailing: Text(mhs.usia),
+            title: Text(mahasiswa.namalengkap),
+            subtitle: Text(mahasiswa.jurusan),
+            trailing: Text(mahasiswa.thn_angkatan),
           )
         ],
       ),
@@ -101,5 +100,44 @@ class MahasiswaCard extends StatelessWidget {
 ```  
 
 > `Step-4` : Mengatur `_MyAppState` pada `Step-2`
-> ubah `return Center` 
+
+* tabbah `final List<Mahasiswa> mhs = MahasiswaList.getMahasiswa();` 
+
+```dart
+class _MyAppState extends State<NurcahyoApp> {
+  final List<Mahasiswa> mhs = MahasiswaList.getMahasiswa();
+
+  Widget build(BuildContext context) {
+    return Container(
+      child: mhs.length > 0
+          ? ListView.builder(
+              itemCount: mhs.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Dismissible(
+                  onDismissed: (DismissDirection direction) {
+                    setState(() {
+                      mhs.removeAt(index);
+                    });
+                  },
+                  secondaryBackground: Container(
+                    child: Center(
+                      child: Text(
+                        'Delete',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                    color: Colors.red,
+                  ),
+                  background: Container(),
+                  child: MahasiswaCard(mahasiswa: mhs[index]),
+                  key: UniqueKey(),
+                  direction: DismissDirection.endToStart,
+                );
+              },
+            )
+          : Center(child: Text('No Items')),
+    );
+  }
+}
+```
 
