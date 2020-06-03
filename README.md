@@ -4,6 +4,7 @@ Hal yang perlu diperhatikan |
 ------------ |
 Editor yang digunakan [DartPad](http://dartpad.dartlang.org) |
 
+![ListView Card](/listview.png)
 
 > `Step-1` : Membuat Layout `StatelessWidget`
 
