@@ -45,7 +45,9 @@ class _MyAppState extends State<NurcahyoApp> {
 }
 ```
 
-> `Step-3` : Buat Objek untuk items ListView `Mahasiswa` dan `MahasiswaList`
+> `Step-3` : Buat Objek untuk items ListView posisi bawah
+
+* class `Mahasiswa`, `MahasiswaList` dan `MahasiswaCard` 
 
 ```dart
 class Mahasiswa {
@@ -71,6 +73,29 @@ class MahasiswaList {
           usia: '',
           fotoURL:''),      
     ];
+  }
+}
+
+class MahasiswaCard extends StatelessWidget {
+  final Mahasiswa mhs;
+
+  MahasiswaCard({this.mhs});
+
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(mhs.fotoURL),
+            ),
+            title: Text(mhs.namalengkap),
+            subtitle: Text(mhs.jkelamin),
+            trailing: Text(mhs.usia),
+          )
+        ],
+      ),
+    );
   }
 }
 ```  
