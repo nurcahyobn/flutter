@@ -10,17 +10,21 @@ Editor yang digunakan [DartPad](http://dartpad.dartlang.org) |
 
 ```dart
 import 'package:flutter/material.dart';
-
-void main() => runApp(App14());
-
-class App14 extends StatelessWidget {
+ 
+void main() => runApp(MyApp());
+ 
+class MyApp extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Nurcahyo (KELAS)'),
+          title: Text('Nurcahyo (6SIA1)'),
         ),
-        body: Text("Step-1"),
+        body: Center(
+          child: Text('Step1'),
+        ),
       ),
     );
   }
@@ -28,18 +32,20 @@ class App14 extends StatelessWidget {
 ```
 
 > `Step-2` : Membuat Layout `StatefulWidget`
-- ubah kode `body: NurcahyoApp(),`
-- tambah perintah dibawah untuk `class NurcahyoApp()`
+- ubah kode `body: MyList(),`
+- tambah perintah dibawah untuk `class MyList`
   
 ```dart
-class NurcahyoApp extends StatefulWidget {
-  _MyAppState createState() => _MyAppState();
+class MyList extends StatefulWidget {
+  @override
+  _MyListState createState() => _MyListState();
 }
 
-class _MyAppState extends State<NurcahyoApp> {
+class _MyListState extends State<MyList> {
+  @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("Step-2"),
+       child: Text('Step1'),
     );
   }
 }
@@ -50,35 +56,30 @@ class _MyAppState extends State<NurcahyoApp> {
 * class `Mahasiswa`, `MahasiswaList` dan `MahasiswaCard` 
 
 ```dart
-class Mahasiswa {
-  final String namalengkap;
-  final String jurusan;
-  final String thn_angkatan;
-  final String fotoURL;
- 
-  Mahasiswa({this.jurusan, this.namalengkap, this.thn_angkatan, this.fotoURL});
-}
-
+// Objek Data
 class MahasiswaList {
-  static List<Mahasiswa> getMahasiswa() {
+  static List<Mahasiswa> getMahasiswa(){
     return [
       Mahasiswa(
-          namalengkap: 'Nurcahyo Budi Nugroho',
-          jurusan: 'Sistem Informasi',
-          thn_angkatan: '2015',
-          fotoURL: 'https://m.media-amazon.com/images/M/MV5BMmIzMjc5Y2ItNTIyZi00YTEzLWI4NDAtODQ0MzBiNTZmMDMxXkEyXkFqcGdeQXVyMjQwMzc1MzI@._V1_UY209_CR13,0,140,209_AL_.jpg'),
+        namalengkap: 'Nurcahyo Budi Nugroho',
+        jurusan: 'Sistem Informasi',
+        alamat: 'Medan',
+        fotoURL: 'https://m.media-amazon.com/images/M/MV5BNjE3NDQyOTYyMV5BMl5BanBnXkFtZTcwODcyODU2Mw@@._V1_UY209_CR5,0,140,209_AL_.jpg',
+      ),
       Mahasiswa(
-          namalengkap: 'Mulia Dewi',
-          jurusan: 'Manajemen Informatika',
-          thn_angkatan: '2019',
-          fotoURL:'https://m.media-amazon.com/images/M/MV5BMTU1Njc2NTc3OV5BMl5BanBnXkFtZTgwMzUyNjU5NDM@._V1_UY209_CR87,0,140,209_AL_.jpg'),      
+        namalengkap: 'Rika Wahyuni',
+        jurusan: 'Ekonomi',
+        alamat: 'Siantar',
+        fotoURL: 'https://m.media-amazon.com/images/M/MV5BMjJkNDg5ZDctM2RlZS00NjFmLTkxZjktMWE5NGQzMDg4NDFhXkEyXkFqcGdeQXVyMTMwMDM1OTQ@._V1_UY209_CR6,0,140,209_AL_.jpg',
+      ),
     ];
   }
 }
 
+//Objek View 
 class MahasiswaCard extends StatelessWidget {
   final Mahasiswa mahasiswa;
-
+  
   MahasiswaCard({this.mahasiswa});
 
   Widget build(BuildContext context) {
@@ -86,12 +87,11 @@ class MahasiswaCard extends StatelessWidget {
       child: Column(
         children: <Widget>[
           ListTile(
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(mahasiswa.fotoURL),
-            ),
-            title: Text(mahasiswa.namalengkap),
+            leading:  CircleAvatar(
+              backgroundImage: NetworkImage(mahasiswa.fotoURL),),
+            title:  Text(mahasiswa.namalengkap),
             subtitle: Text(mahasiswa.jurusan),
-            trailing: Text(mahasiswa.thn_angkatan),
+            trailing: Text(mahasiswa.alamat),
           )
         ],
       ),
@@ -100,12 +100,12 @@ class MahasiswaCard extends StatelessWidget {
 }
 ```  
 
-> `Step-4` : Mengatur `_MyAppState` pada `Step-2`
+> `Step-4` : Mengatur `_MyListState` pada `Step-2`
 
 * tabbah `final List<Mahasiswa> mhs = MahasiswaList.getMahasiswa();` 
 
 ```dart
-class _MyAppState extends State<NurcahyoApp> {
+class _MyListState extends State<MyList> {
   final List<Mahasiswa> mhs = MahasiswaList.getMahasiswa();
 
   Widget build(BuildContext context) {
