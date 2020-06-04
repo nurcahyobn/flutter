@@ -56,6 +56,16 @@ class _MyListState extends State<MyList> {
 * class `Mahasiswa`, `MahasiswaList` dan `MahasiswaCard` 
 
 ```dart
+// Objek Model
+class Mahasiswa {
+  String namalengkap;
+  String jurusan;
+  String alamat;
+  String fotoURL;
+
+  Mahasiswa({this.namalengkap, this.alamat, this.jurusan, this.fotoURL});
+}
+
 // Objek Data
 class MahasiswaList {
   static List<Mahasiswa> getMahasiswa(){
