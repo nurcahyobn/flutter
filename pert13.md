@@ -96,6 +96,11 @@ TextField(
     decoration: new InputDecoration(
     ...
 ),
+RaisedButton(
+    child: Text("Hitung"),
+    onPressed: onHitung,
+),
+Text(hasil),
 ```
 
 > berikut kode `return Center`
