@@ -88,7 +88,7 @@ class _MyAppState extends State<MyApp> {
   ...
 ```
 
-> `Step-5` : Tambah attribut `controller` pada `TextField`
+> `Step-5` : Tambah attribut `controller` pada `TextField`, `onPressed` pada `RaisedButton` dan var `hasil` pada `Text`
 
 ```dart
 TextField(
