@@ -88,10 +88,7 @@ class _MyAppState extends State<MyApp> {
   ...
 ```
 
-> `Step-5` : Widget input `TextField`
-
-- hapus semua attribut `color` (contoh: `color: Colors.green,`)
-- ubah widget `Text` dengan `TextField`
+> `Step-5` : Tambah attribut `controller` pada `TextField`
 
 ```dart
 TextField(
