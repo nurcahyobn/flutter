@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Nurcahyo (6SIA1)'),
+          title: Text('Nurcahyo (5SIC5)'),
         ),
         body: Center(
           child: Text('Step1'),
@@ -45,7 +45,7 @@ class _MyListState extends State<MyList> {
   @override
   Widget build(BuildContext context) {
     return Center(
-       child: Text('Step1'),
+       child: Text('Step2'),
     );
   }
 }
@@ -112,7 +112,8 @@ class MahasiswaCard extends StatelessWidget {
 
 > `Step-4` : Mengatur `_MyListState` pada `Step-2`
 
-* tabbah `final List<Mahasiswa> mhs = MahasiswaList.getMahasiswa();` 
+* tambah `final List<Mahasiswa> mhs = MahasiswaList.getMahasiswa();` 
+* atau ganti isi `class _MyListState` berikut:
 
 ```dart
 class _MyListState extends State<MyList> {
