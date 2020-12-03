@@ -91,7 +91,7 @@ onPressed: () {
 ```
 <hr />
 
-# latihan
+# latihan (gunakan nama sendiri di program)
 
 ![Hasil](/app-nav.gif)
 
