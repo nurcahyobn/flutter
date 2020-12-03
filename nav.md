@@ -2,7 +2,7 @@
 
 Untuk Pengujian awali dengan perintah berikut:
 
-```
+```dart
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,7 +10,6 @@ void main() {
     home: Informasi(),
   ));
 }
-
 ```
 
 Beberapa bagian berikutnya menunjukkan cara menavigasi di antara dua rute, menggunakan langkah-langkah berikut:
@@ -24,7 +23,7 @@ Beberapa bagian berikutnya menunjukkan cara menavigasi di antara dua rute, mengg
 
 Pertama, buat dua rute untuk dikerjakan. Karena ini adalah contoh dasar, setiap rute hanya berisi satu tombol. Mengetuk tombol di rute pertama akan menavigasi ke rute kedua. Mengetuk tombol di rute kedua akan mengembalikan ke rute pertama.
 
-```
+```dart
 class Informasi extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +67,7 @@ class InputData extends StatelessWidget {
 Untuk beralih ke rute baru, gunakan `Navigator.push()`. Push() menambahkan Rute ke tumpukan rute dikelola oleh Navigator. Dari mana Routea salnya Anda dapat membuatnya sendiri, atau menggunakan  MaterialPageRoute, yang berguna karena transisi ke rute baru menggunakan animasi khusus platform.
 
 
-```
+```dart
 onPressed: () {
   // Navigasi ke rute kedua (Input Data).
   Navigator.push(
@@ -82,7 +81,7 @@ onPressed: () {
 
 Untuk menutup rute kedua dan kembali ke rute pertama gunakan `Navigator.pop()`. Pop()  menghilangkan arus Rute dari tumpukan rute dikelola oleh Navigator.
 
-```
+```dart
 onPressed: () {
   // Navigasi ke rute pertama (Informasi)
   Navigator.pop(context);
