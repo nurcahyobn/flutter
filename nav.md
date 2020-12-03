@@ -1,6 +1,6 @@
 # Aplikasi dengan Navigasi
 
-![Hasil](/nav-flutter.png)
+![Hasil](/nav-flutter.gif)
 
 Untuk Pengujian awali dengan perintah berikut:
 
@@ -89,3 +89,8 @@ onPressed: () {
   Navigator.pop(context);
 }
 ```
+<hr />
+
+Gunakan properties 'floatingActionButton' pada 'Scaffold' untuk pindah ke rute input data.
+
+![Step2](/floatingActionButton.png)
