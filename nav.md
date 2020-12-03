@@ -1,5 +1,7 @@
 # Aplikasi dengan Navigasi
 
+![Hasil](/nav-flutter.png)
+
 Untuk Pengujian awali dengan perintah berikut:
 
 ```dart
