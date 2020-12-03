@@ -91,6 +91,18 @@ onPressed: () {
 ```
 <hr />
 
+# latihan
+
+![Hasil](/app-nav.gif)
+
 Gunakan properties 'floatingActionButton' pada 'Scaffold' untuk pindah ke rute input data.
 
 ![Step2](/floatingActionButton.png)
+
+## class Informasi
+
+![Step3](/class-inf.png)
+
+## class InputData
+
+![Step4](/class-inp.png)
