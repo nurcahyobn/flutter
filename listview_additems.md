@@ -13,14 +13,14 @@ import 'package:flutter/material.dart';
 void main() => runApp(Myapp());
 
 class Myapp extends StatefulWidget {
-  @override
   _MyappState createState() => _MyappState();
 }
 
 class _MyappState extends State<Myapp> {
-  final txtnama = TextEditingController();
-  final txtnim = TextEditingController();
-  @override
+  //deklarasi variabel
+  final txtnamamhs = TextEditingController();
+  final txtjkelamin = TextEditingController();
+  
   Widget build(BuildContext context) {
     return MaterialApp(
         home: new Scaffold(
@@ -33,17 +33,14 @@ class _MyappState extends State<Myapp> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       TextField(
-                        controller: txtnama,
-                        autocorrect: true,
-                        decoration: InputDecoration(hintText: 'Nama'),
+                        controller: txtnamamhs,
+                        decoration: InputDecoration(hintText: 'Nama Mahasiswa'),
                       ),
                       TextField(
-                        controller: txtnim,
-                        autocorrect: true,
-                        decoration: InputDecoration(hintText: 'Nim'),
+                        controller: txtjkelamin,
+                        decoration: InputDecoration(hintText: 'Jenis Kelamin'),
                       ),
                       RaisedButton(
-                          color: Colors.green,
                           child: Text("Tambah"),
                           onPressed: null),
                     ],
@@ -51,7 +48,7 @@ class _MyappState extends State<Myapp> {
                 ),
                 new Column(
                     // Isi List View
-                    )
+                )
               ],
             )));
   }
@@ -63,36 +60,23 @@ Letakkan program di bawah ini pada tempat deklarasi variabel
 ```dart
 List<Widget> data = [];
 
-String nama = '';
-  String nim = '';
-  ambilData() {
+onTambah() {
     setState(() {
-      nama = txtnama.text;
-      nim = txtnim.text;
-
       data.add(ListTile(
         leading: Icon(Icons.people),
-        title: Text('$nama'),
-        subtitle: Text("$nim"),
+        title: Text(txtnamamhs.text),
+        subtitle: Text(txtjkelamin.text),
       ));
     });
   }
   ```
 >## Langkah 3: Panggil Pada Design
 
+ganti properties `RaisedButton` dengan `onPressed: onTambah,`
+
 masukkan Array kedalam ListView
 ```dart
 new Column(
    children: data,
   )
-  
- 
-```
-Panggil Constructor
-```dart
-RaisedButton(
-    color: Colors.green,
-    child: Text("Tambah"),
-     onPressed: ambilData,
-),
 ```
