@@ -95,6 +95,11 @@ class InputData extends StatefulWidget {
 
 class _InputDataState extends State<InputData> {
   //deklarasi variabel & fungsi  
+  final data = Mahasiswa(
+    namamhs: 'Akmal',
+    jkelamin: 'Laki-laki',
+    jurusan: 'Teknik',
+  );
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -135,3 +140,5 @@ class _InputDataState extends State<InputData> {
   //Constructor Informasi
   Informasi({this.data});
 ```
+
+### 04 - on progress
