@@ -189,6 +189,10 @@ class MataKuliah extends StatelessWidget {
 
 
 ```dart
+    TabController controller;
+    final _scaffoldKey = new GlobalKey<ScaffoldState>();
+    ....
+    
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
