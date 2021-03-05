@@ -21,8 +21,20 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('NurcahyoProject'),
         ),
+      //body
       ),
     );
   }
 }
 ```
+Penggunaan GridView di Flutter seperti penggabungan antara penggunaan ListView widget serta penggunaan row dan column widget. Berikut contoh sederhana Penggunaan GridView di flutter framework
+
+```dart
+body: GridView.count(
+  crossAxisCount: 3,
+  children: <Widget>[],
+  ),
+```
+
+Nilai tiga (3) pada crossAxisCount merupakan nilai untuk jumlah column pada grid. Sedangkan children merupakan widget turunan yang akan ditampilkan dalam bentuk grid.
+
