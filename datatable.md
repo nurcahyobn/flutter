@@ -6,7 +6,7 @@ Kita dapat memberikan informasi secara jelas dan ringkas, yang sangat membantu p
 
 ## Membuat DataTable Sederhana
 
-![ListView Card](/listview.png)
+![DataTable](/flutter-datatable.jpg)
 
 1. Buat Widget `DataTable`, dengan syntax berikut: 
 
