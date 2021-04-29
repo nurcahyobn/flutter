@@ -10,17 +10,38 @@ Langkah-langkah Pembuatan Aplikasi Sistem Pakar |
 > `1` : 
 
 ```dart
-final String tblPenyakit = 'scores';
-final String columnId = '_id';
+final String tblPenyakit = 'penyakit';
+final String columnId = 'id';
 
 
 final List<String> tables = [
   '''
   CREATE TABLE $tblPenyakit (
     $columnId INTEGER PRIMARY KEY,
-    ...
   )
   '''
 ];
-
 ```
+
+```dart
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(home: LoginPage()));
+}
+
+class LoginPage extends StatefulWidget {
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+      backgroundColor: Colors.orange,
+      title: Text('UTS - Mahasiswa'),
+    ));
+  }
+}
+```dart
+
