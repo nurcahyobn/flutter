@@ -12,18 +12,60 @@ sqflite: any
 path_provider: any
 ```
 
-```dart
-final String tblPenyakit = 'penyakit';
-final String columnId = 'id';
+> file `tables.dart` 
 
+```dart
+final String tblLogin = 'login';
+final String tblPasien = 'pasien';
+
+final String colId = 'id';
+
+// tabel Login
+final String colUsername = 'username';
+final String colPassword = 'password';
+
+// tabel Penyakit
+final String colKodePenyakit = 'kodepenyakit';
+final String colNamaPenyakit = 'namapenyakit';
+final String colSolusi = 'solusi';
+
+// tabel Gejala
+final String colKodeGejala = 'kodegejala';
+final String colNamaGejala = 'namagejala';
+
+// tabel BasisPengetahuan
+final String colKodeGejala = 'kodegejala';
+final String colNilaiProb = 'nilai_prob';
+
+// tabel Pasien
+final String colNamaPasien = 'namapasien';
+final String colAlamat = 'alamat';
+final String colUsia = 'usia';
+final String colTelepon = 'telepon';
+
+// tabel Konsultasi
+final String colIdPasien = 'idpasien';
+final String colGejalaDipilih = 'gejala_dipilih';
 
 final List<String> tables = [
   '''
-  CREATE TABLE $tblPenyakit (
-    $columnId INTEGER PRIMARY KEY,
+  CREATE TABLE $tblLogin (
+    $colId INTEGER PRIMARY KEY,
+    $colUsername TEXT,
+    $colPassword TEXT
+  )
+  ''',
+  '''
+  CREATE TABLE $tblPasien (
+    $colId INTEGER PRIMARY KEY,
+    $colNamaPasien TEXT,
+    $colAlamat TEXT,
+    $colUsia TEXT,
+    $colTelepon TEXT
   )
   '''
 ];
+
 ```
 
 ```dart
