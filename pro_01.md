@@ -1,3 +1,5 @@
+# 12 - Sistem Pakar Bagian#2 File & Database
+
 Langkah-langkah Pembuatan Aplikasi Sistem Pakar |
 ------------ |
 1. Create New Project `project_01` sesuai dengan kelompoknya |
@@ -5,9 +7,10 @@ Langkah-langkah Pembuatan Aplikasi Sistem Pakar |
 3. Membuat folder `database` dan `models` |
 4. Program DatabaseHelper |
 
-
-
-> `1` : 
+```
+sqflite: any
+path_provider: any
+```
 
 ```dart
 final String tblPenyakit = 'penyakit';
