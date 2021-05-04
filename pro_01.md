@@ -18,12 +18,12 @@ Stuctur Table |
 ------------ |
 
 ```sql
-CREATE TABLE login (id INTEGER PRIMARY KEY, username TEXT, password TEXT);
-CREATE TABLE penyakit (id INTEGER PRIMARY KEY, kodepenyakit TEXT, namapenyakit TEXT, solusi TEXT);
-CREATE TABLE gejala (id INTEGER PRIMARY KEY, kodegejala TEXT, namagejala TEXT);
-CREATE TABLE basispengetahuan (id INTEGER PRIMARY KEY, kodegejala TEXT, nilai_prob TEXT);
-CREATE TABLE pasien (id INTEGER PRIMARY KEY, namapasien TEXT, alamat TEXT, usia TEXT, telepon TEXT);
-CREATE TABLE konsultasi (id INTEGER PRIMARY KEY, idpasien INTEGER, gejala_dipilih TEXT);
+CREATE TABLE login (id INTEGER PRIMARY KEY, username TEXT, password TEXT)
+CREATE TABLE penyakit (id INTEGER PRIMARY KEY, kodepenyakit TEXT, namapenyakit TEXT, solusi TEXT)
+CREATE TABLE gejala (id INTEGER PRIMARY KEY, kodegejala TEXT, namagejala TEXT)
+CREATE TABLE basispengetahuan (id INTEGER PRIMARY KEY, kodegejala TEXT, nilai_prob TEXT)
+CREATE TABLE pasien (id INTEGER PRIMARY KEY, namapasien TEXT, alamat TEXT, usia TEXT, telepon TEXT)
+CREATE TABLE konsultasi (id INTEGER PRIMARY KEY, idpasien INTEGER, gejala_dipilih TEXT)
 ```    
 
 ```dart
