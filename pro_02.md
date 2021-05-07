@@ -1,4 +1,4 @@
-# Akses Database SqfLite menggunakan Model
+# Akses Database SQFLite menggunakan Model Flutter
 
 Langkah-langkah Pembuatan Aplikasi Sistem Pakar |
 ------------ |
