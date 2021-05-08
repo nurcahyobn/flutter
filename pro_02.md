@@ -36,6 +36,7 @@ class DBHelper {
 
     String path = join(await getDatabasesPath(), "quisnurcahyo.db");
     _db = await openDatabase(path, version: 1, onCreate: _onCreate);
+    return _db;
   }
 
   _onCreate(Database db, int version) async {
