@@ -1,80 +1,110 @@
-# Akses Database SQFLite menggunakan Model Flutter
+# DAO : Data Access Objek pada Aplikasi
 
-### Create Project
-
-> `flutter create nurcahyobn`
-
-> `cd nurcahyobn`
-
-> `flutter pub add sqflite` 
-
-> `flutter pub add path`
-
-> pada Visual Studio Code > add Folder to Workspace > pilih folder `nurcahyobn` 
-
-### Membuat Akses ke Database
-
-> buat file `lib\dbhelper.dart`
- 
-> import
+### Menyimpan data 
 
 ```dart
-import 'dart:async';
-
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
+ Future<int> insert(Object obj) async {
+    final dbClient = await db;
+    return await dbClient.insert('tablename', obj.toMap());
+  }
 ```
 
-lalu ketik perintah:
+<hr />
+
+### Menghapus data 
 
 ```dart
-class DBHelper {
-  static Database _db;
-
-  Future<Database> get db async {
-    if (_db != null) return _db;
-
-    String path = join(await getDatabasesPath(), "quisnurcahyo.db");
-    _db = await openDatabase(path, version: 1, onCreate: _onCreate);
-    return _db;
+  Future<int> delete(int id) async {
+    final dbClient = await db;
+    return await dbClient.delete('tablename', where: 'id=?', whereArgs: [id]);
   }
-
-  _onCreate(Database db, int version) async {
-    await db.execute(
-        'CREATE TABLE buku (id INTEGER PRIMARY KEY, judul TEXT, tahun INTEGER)');
-  }
-
-  Future<int> simpan(Map<String, dynamic> map) async {
-    _db = await db; //koneksi database
-    return _db.insert("buku", map);
-  }
-
-  Future<List<Map<String, dynamic>>> tampilBuku() async {
-    _db = await db; //koneksi database
-    return _db.query("buku");
-  }
-}
 ```
 
+<hr />
 
-### Membuat Tampilan Program ```home.dart```
+### Mengubah data 
 
 ```dart
-import 'package:flutter/material.dart';
+  Future<int> update(Object obj) async{
+    final dbClient = await db;
+    var result = await dbClient
+        .update("tablename", obj.toMap(), where: "id=?", whereArgs: [obj.id]);
+    return result;
+  }
+```
 
-void main() {
-  runApp(MaterialApp(home: Nurcahyo()));
-}
+<hr />
 
-class Nurcahyo extends StatefulWidget {
-  _NurcahyoState createState() => _NurcahyoState();
-}
+### Mengambil Semua data 
 
-class _NurcahyoState extends State<Nurcahyo> {
-  Widget build(BuildContext context) {
-    return Container(
-      child: null,
+```dart
+  Future<List<Object>> queryAll() async {
+    final dbClient = await db;
+    var maps = await dbClient.query("tablename");
+    List<Object> list = 
+        maps.isNotEmpty ? maps.map((c) => Object.fromMap(c)).toList() : [];
+    return list;
+  }
+```
+
+<hr />
+
+### Mengambil Data berdasarkan ID 
+
+```dart
+  Future<Object> getObjectById(int id) async {
+    final dbClient = await db;
+    var maps = await dbClient.query("tablename", where: "id=?", whereArgs: [id]);
+    return maps.isNotEmpty ? Object.fromMap(maps.first) : Null;
+  }
+```
+
+<hr />
+
+### Deklarasi Fungsi Awal Mengambil data dari DBHelper
+
+```dart
+class _HomePageState extends State<HomePage> {
+
+  DBHelper database = DBHelper();
+  List<Object> obj = [];
+  
+  void initState() {
+    super.initState();
+    RefreshList();
+  }
+
+  RefreshList() {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      obj = await database.queryAll();
+      setState(() {});
+    });
+  }
+}  
+```
+### Menampilkan Data di ListView
+
+```dart
+ListView.builder(
+  itemCount: obj.length,
+  padding: EdgeInsets.fromLTRB(24, 0, 24, 8),
+  itemBuilder: (BuildContext context, int index) {
+    var value = obj[index];
+    return ListTile(
+      leading: null,
+      title: Text("Kode : ${value.kode}"),
+      subtitle: Text("${value.nama}"),
+      trailing: IconButton(
+        icon: Icon(Icons.delete),
+        onPressed: () async {
+          await database.deletePenyakit(value.id);
+          RefreshList();
+        },
+      ),
+      onTap: () {},
     );
-  }
-}
+  },
+),
 ```
+ketika layoutnya dibagi kedalam beberapa `widget`, gunakan `Expanded(child: ListView...`
+
