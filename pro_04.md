@@ -64,47 +64,133 @@
 ### Deklarasi Fungsi Awal Mengambil data dari DBHelper
 
 ```dart
-class _HomePageState extends State<HomePage> {
-
-  DBHelper database = DBHelper();
-  List<Object> obj = [];
+class _MahasiswaPageState extends State<MahasiswaPage> {
+  final GlobalKey<FormState> _formStateKey = GlobalKey<FormState>();
+  Future<List<Mahasiswa>> mahasiswa;
   
+  String _namaMhs;
+  DBHelper dbHelper;  
+  final _namaMhsController = TextEditingController();
+
   void initState() {
     super.initState();
-    RefreshList();
+    dbHelper = DBHelper();
+    refreshMahasiswaList();
   }
 
-  RefreshList() {
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      obj = await database.queryAll();
-      setState(() {});
+  refreshMahasiswaList() {
+    setState(() {
+      mahasiswa = dbHelper.getMahasiswa();
     });
   }
-}  
 ```
 ### Menampilkan Data di ListView
 
 ```dart
-ListView.builder(
-  itemCount: obj.length,
-  padding: EdgeInsets.fromLTRB(24, 0, 24, 8),
-  itemBuilder: (BuildContext context, int index) {
-    var value = obj[index];
-    return ListTile(
-      leading: null,
-      title: Text("Kode : ${value.kode}"),
-      subtitle: Text("${value.nama}"),
-      trailing: IconButton(
-        icon: Icon(Icons.delete),
-        onPressed: () async {
-          await database.deletePenyakit(value.id);
-          RefreshList();
-        },
+Expanded(
+    child: FutureBuilder(
+      future: students,
+      builder: (context, AsyncSnapshot<List<Student>> snapshot) {
+        if (snapshot.hasData) {
+          return ListView.builder(
+            itemCount: snapshot.data.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                  title: Text("${snapshot.data[index].name}"));
+            },
+          );
+        }
+        if (snapshot.data == null || snapshot.data.length == 0) {
+          return Text('No Data Found');
+        }
+        return CircularProgressIndicator();
+      },
+    ),
+  ),
+```
+
+```dart
+ SingleChildScrollView generateList(List<Student> students) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: SizedBox(
+         width: MediaQuery.of(context).size.width,
+        child: DataTable(
+          columns: [
+            DataColumn(label: Text('ID')),
+            DataColumn(label: Text('DELETE'))
+          ],
+          rows: students
+              .map(
+                (student) => DataRow(
+                  cells: [
+                    DataCell(Text(student.id.toString())),
+                    DataCell(IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () {
+                        dbHelper.delete(student.id);
+                        refreshStudentList();
+                      },
+                    ))
+                  ],
+                ),
+              )
+              .toList(),
+        ),
       ),
-      onTap: () {},
     );
-  },
+  }
+```
+
+### Form Input Data
+
+```dart
+Form(
+  key: _formStateKey,
+  autovalidate: true,
+  child: Column(
+    children: <Widget>[
+      Padding(
+        padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+        child: TextFormField(
+          validator: (value) {
+            if (value.isEmpty) return 'Please Enter Student Name';
+            return null;
+          },
+          onSaved: (value) => _studentName = value,
+          controller: _studentNameController,
+          decoration: InputDecoration(labelText: "Student Name"),
+        ),
+      ),
+    ],
+  ),
 ),
 ```
-ketika layoutnya dibagi kedalam beberapa `widget`, gunakan `Expanded(child: ListView...`
+
+```dart
+Row(
+  mainAxisAlignment: MainAxisAlignment.center,
+  children: <Widget>[
+    ElevatedButton(
+      child: Text('Simpan'),
+      onPressed: () {
+        if (_formStateKey.currentState.validate()) {
+          _formStateKey.currentState.save();
+
+          dbHelper.add(Student(null, _studentName));
+        }
+        _studentNameController.text = '';
+        refreshStudentList();
+      },
+    ),
+    Padding(
+      padding: EdgeInsets.all(10),
+    ),
+    ElevatedButton(
+      child: Text('Batal'),
+      onPressed: () {},
+    ),
+  ],
+),
+```
 
