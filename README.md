@@ -63,7 +63,7 @@ class Mahasiswa {
   String alamat;
   String fotoURL;
 
-  Mahasiswa({this.namalengkap, this.alamat, this.jurusan, this.fotoURL});
+  Mahasiswa({this.namalengkap="", this.alamat="", this.jurusan="", this.fotoURL=""});
 }
 
 // Objek Data
@@ -88,7 +88,7 @@ class MahasiswaList {
 
 //Objek View 
 class MahasiswaCard extends StatelessWidget {
-  final Mahasiswa mahasiswa;
+  final Mahasiswa? mahasiswa;
   
   MahasiswaCard({this.mahasiswa});
 
@@ -98,10 +98,10 @@ class MahasiswaCard extends StatelessWidget {
         children: <Widget>[
           ListTile(
             leading:  CircleAvatar(
-              backgroundImage: NetworkImage(mahasiswa.fotoURL),),
-            title:  Text(mahasiswa.namalengkap),
-            subtitle: Text(mahasiswa.jurusan),
-            trailing: Text(mahasiswa.alamat),
+              backgroundImage: NetworkImage(mahasiswa!.fotoURL),),
+            title:  Text(mahasiswa!.namalengkap),
+            subtitle: Text(mahasiswa!.jurusan),
+            trailing: Text(mahasiswa!.alamat),
           )
         ],
       ),
