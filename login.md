@@ -9,61 +9,102 @@ Editor yang digunakan [DartPad](http://dartpad.dartlang.org) |
 ```dart
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(home: LoginPage()));
-}
+void main() => runApp(MyApp());
 
-class LoginPage extends StatefulWidget {
-  _LoginPageState createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
+class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Nurcahyo - Kelas'),
-      ),
-      body: Center(child: Text("Step-1")),
+    return MaterialApp(
+      title: 'Login',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primaryColor: Colors.black),
     );
   }
 }
 ```
 
-> `Step-2` pada body isi dengan:
 
 ```dart
-Padding(
-  padding: EdgeInsets.all(10),
-  child: ListView(
-    children: <Widget>[
-      Container(
-        padding: EdgeInsets.all(10),
-        child: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'User Name',
-          ),
+class Login extends StatefulWidget {
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(8),
+        color: Colors.lightBlue,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+           
+          ],
         ),
       ),
-      Container(
-        padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-        child: TextField(
-          obscureText: true,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            labelText: 'Password',
-          ),
+    );
+  }
+}
+```
+
+```dart
+Container(
+   width: 100,
+   height: 100,
+   decoration:
+   BoxDecoration(color: Colors.black87, shape: BoxShape.circle),
+   child: Center(
+     child: Icon(
+       Icons.person,
+       size: 50,
+       color: Colors.white,
+     ),
+   ),
+ ),
+```
+
+```dart
+Text(
+  "Selamat Datang, Silahkan Masuk",
+  style: TextStyle(fontSize: 20, color: Colors.black),
+),
+```
+
+```dart
+TextFormField(
+  decoration: InputDecoration(
+    border: OutlineInputBorder(),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.black87)),
+    prefixIcon: Icon(
+      Icons.person,
+      size: 40,
+    ),
+    hintText: "Masukan Username",
+    hintStyle: TextStyle(color: Colors.black87),
+    labelText: "Username",
+    labelStyle: TextStyle(color: Colors.black87),
+  ),
+),
+```
+
+```dart
+Card(
+  color: Colors.black87,
+  elevation: 5,
+  child: Container(
+    height: 50,
+    child: InkWell(
+      splashColor: Colors.white,
+      onTap: () {},
+      child: Center(
+        child: Text(
+          "Login",
+          style: TextStyle(fontSize: 20, color: Colors.white),
         ),
       ),
-      Container(
-          height: 50,
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-          child: RaisedButton(
-            textColor: Colors.white,
-            color: Colors.blue,
-            child: Text('Login'),
-            onPressed: () {},
-          )),
-    ],
-  )),
+    ),
+  ),
+)
 ```
