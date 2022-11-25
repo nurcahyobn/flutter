@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Nurcahyo (5SIC5)'),
+          title: Text('Nurcahyo (KELAS)'),
         ),
         body: Center(
           child: Text('Step1'),
