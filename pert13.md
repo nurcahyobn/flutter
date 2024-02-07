@@ -5,17 +5,19 @@
 ```dart
 import 'package:flutter/material.dart';
 
-void main() => runApp(App04());
+void main() {
+  runApp(MyApp());
+}
 
-class App04 extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Program Persegi Panjang',
+      theme: ThemeData.dark(),
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Nurcahyo (KELAS)'),
-        ),
-        body: Text("Step-1"),
+        body: NurcahyoApp(),
       ),
     );
   }
@@ -28,10 +30,12 @@ class App04 extends StatelessWidget {
   
 ```dart
 class NurcahyoApp extends StatefulWidget {
-  _MyAppState createState() => _MyAppState();
+  @override
+  State<NurcahyoApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<NurcahyoApp> {
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Text("Step-2"),
@@ -45,33 +49,32 @@ class _MyAppState extends State<NurcahyoApp> {
 
 ```dart
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: const EdgeInsets.all(20.0),
       child: Column(
         children: <Widget>[
-          TextField(
-            decoration: new InputDecoration(
+          const TextField(
+            decoration: InputDecoration(
               labelText: "Nama Mahasiswa",
             ),
           ),
-          TextField(
-            decoration: new InputDecoration(
+          const TextField(
+            decoration: InputDecoration(
               labelText: "Tahun Lahir",
             ),
           ),
-          RaisedButton(
-            child: Text("Hitung"),
+          ElevatedButton(
+            child: const Text("Hitung"),
             onPressed: () {},
           ),
-          Text("Usia"),
+          const Text("Usia"),
         ],
       ),
-    );
-```
+    );```
 
 > `Step-4` : Deklarasi `variabel` dan `fungsi` klik Button Hitung
 
 ```dart
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<NurcahyoApp> {  
   final txtnama = TextEditingController();
   final txttahunlahir = TextEditingController();
 
@@ -79,16 +82,17 @@ class _MyAppState extends State<MyApp> {
 
   onHitung() {
     setState(() {
-      var usia = 2020 - int.parse(txttahunlahir.text);
+      var usia = 2024 - int.parse(txttahunlahir.text);
       hasil = "${txtnama.text} berusia $usia tahun";
     });
   }
-
+  
+  @override
   Widget build(BuildContext context) {
   ...
 ```
 
-> `Step-5` : Tambah attribut `controller` pada `TextField`, `onPressed` pada `RaisedButton` dan var `hasil` pada `Text`
+> `Step-5` : Tambah attribut `controller` pada `TextField`, `onPressed` pada `ElevatedButton` dan var `hasil` pada `Text`
 
 ```dart
 TextField(
@@ -96,7 +100,7 @@ TextField(
     decoration: new InputDecoration(
     ...
 ),
-RaisedButton(
+ElevatedButton(
     child: Text("Hitung"),
     onPressed: onHitung,
 ),
