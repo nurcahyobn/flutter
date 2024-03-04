@@ -1,8 +1,9 @@
 # ListView dan Card 
 
-Hal yang perlu diperhatikan |
+## Membuat Project Baru |
 ------------ |
-Editor yang digunakan [DartPad](http://dartpad.dartlang.org) |
+Lokasi di folder : `**6SIC1**` |
+Nama Project : `**app**` |
 
 ![ListView Card](/listview.png)
 
