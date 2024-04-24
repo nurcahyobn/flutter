@@ -51,21 +51,12 @@ DataRow(
 > `Contoh-1` : Program Sederhana pada DataTable
 
 ```dart
-import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MaterialApp(home: MyApp()));
-}
-
-class MyApp extends StatefulWidget {
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Nurcahyo - Kelas'),
+        title: Text(widget.title),
       ),
       body: ListView(children: <Widget>[
         Center(
