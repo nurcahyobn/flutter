@@ -12,18 +12,20 @@ Tugas jam `10.15` |
 ```dart
 import 'package:flutter/material.dart';
 
-void main() => runApp(App12());
+void main() => runApp(const MyApp());
 
-class App12 extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Program Persegi Panjang',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Nurcahyo (KELAS)'),
-        ),
-        body: Text("Step-1"),
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorSchemeSeed: Colors.blue,
       ),
+      home: const MyHomePage(title: 'Nurcahyo B.N - 6SIC1'),
     );
   }
 }
@@ -31,18 +33,20 @@ class App12 extends StatelessWidget {
 
 > `Step-2` : Membuat Layout `StatefulWidget`
 
-- ubah kode `body: NurcahyoApp(),`
-- tambah perintah dibawah untuk `class NurcahyoApp()`
+
   
 ```dart
-class NurcahyoApp extends StatefulWidget {
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<NurcahyoApp> {
+class _MyHomePageState extends State<MyHomePage> {
+  
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("Step-2"),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ), 
+      body: Center(
+        child: Text("Step-2"),
+      ),
     );
   }
 }
@@ -67,7 +71,7 @@ class _MyAppState extends State<NurcahyoApp> {
               labelText: "Tahun Lahir",
             ),
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text("Hitung"),
             onPressed: () {},
           ),
@@ -88,7 +92,7 @@ class _MyAppState extends State<NurcahyoApp> {
 
   onHitung() {
     setState(() {
-      var usia = 2020 - int.parse(txttahunlahir.text);
+      var usia = 2025 - int.parse(txttahunlahir.text);
       hasil = "${txtnama.text} berusia $usia tahun";
     });
   }
@@ -110,7 +114,7 @@ class _MyAppState extends State<NurcahyoApp> {
               labelText: "Tahun Lahir",
             ),
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text("Hitung"),
             onPressed: onHitung,
           ),
