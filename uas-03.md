@@ -6,10 +6,14 @@
 flutter pub add sqflite_common_ffi
 ```
 
-
 ```
 flutter pub add sqflite_common_ffi_web
 ```
+
+```
+dart run sqflite_common_ffi_web:setup
+```
+
 
 ### Buat File sqlite_helper.dart
 
